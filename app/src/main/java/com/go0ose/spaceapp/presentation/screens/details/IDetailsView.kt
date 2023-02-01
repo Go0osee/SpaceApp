@@ -6,5 +6,6 @@ import moxy.viewstate.strategy.StateStrategyType
 
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface IDetailsView : MvpView {
-
+    fun showTutorial()
+    fun hideTutorial()
 }

@@ -24,5 +24,8 @@ class PresenterModule {
     fun getMapPresenter(): MapPresenter = MapPresenter()
 
     @Provides
-    fun getDetailsPresenter(): DetailsPresenter = DetailsPresenter()
+    fun getDetailsPresenter(
+        router: Router,
+        context: Context
+    ): DetailsPresenter = DetailsPresenter(router, context)
 }

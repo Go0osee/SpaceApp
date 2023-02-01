@@ -1,7 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
+
+    <com.go0ose.spaceapp.presentation.screens.details.CustomImageView
+        android:id="@+id/marsPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="matrix" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/buttonBack"
+        android:layout_width="@dimen/layout_48dp"
+        android:layout_height="@dimen/layout_48dp"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:layout_marginTop="@dimen/margin_44dp"
+        android:background="@color/transparent"
+        android:backgroundTint="@color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardCornerRadius="@dimen/corner_radius_24dp"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_button_back" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/buttonShare"
+        android:layout_width="@dimen/layout_48dp"
+        android:layout_height="@dimen/layout_48dp"
+        android:layout_marginTop="@dimen/margin_44dp"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        android:background="@color/transparent"
+        android:backgroundTint="@color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardCornerRadius="@dimen/corner_radius_24dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_button_share" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/tutorial"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/tutorial_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/tutorialBack"
+                android:layout_width="@dimen/layout_48dp"
+                android:layout_height="@dimen/layout_48dp"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginTop="@dimen/margin_44dp"
+                android:src="@drawable/ic_button_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/tutorialShare"
+                android:layout_width="@dimen/layout_48dp"
+                android:layout_height="@dimen/layout_48dp"
+                android:layout_marginTop="@dimen/margin_44dp"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                android:src="@drawable/ic_button_share"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/tutorialArrowBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/corner_radius_24dp"
+                android:src="@drawable/ic_arrow"
+                app:layout_constraintBottom_toBottomOf="@+id/tutorialBack"
+                app:layout_constraintStart_toEndOf="@+id/tutorialBack"
+                app:layout_constraintTop_toTopOf="@+id/tutorialBack" />
+
+            <ImageView
+                android:id="@+id/tutorialArrowShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_24dp"
+                android:scaleX="-1"
+                android:src="@drawable/ic_arrow"
+                app:layout_constraintBottom_toBottomOf="@+id/tutorialShare"
+                app:layout_constraintEnd_toStartOf="@+id/tutorialShare"
+                app:layout_constraintTop_toTopOf="@+id/tutorialShare" />
+
+            <TextView
+                android:id="@+id/textBack"
+                android:layout_width="@dimen/layout_160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:fontFamily="@font/nunito_regular"
+                android:gravity="center"
+                android:text="@string/click_the_button_to_go_back"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16sp"
+                app:layout_constraintEnd_toStartOf="@+id/textShare"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tutorialArrowBack" />
+
+            <TextView
+                android:id="@+id/textShare"
+                android:layout_width="@dimen/layout_160dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_regular"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:text="@string/click_the_button_to_share"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16sp"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textBack"
+                app:layout_constraintTop_toBottomOf="@+id/tutorialArrowShare" />
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-32dp"
+                android:layout_marginTop="@dimen/margin_32dp"
+                android:src="@drawable/ic_hand"
+                app:layout_constraintBottom_toBottomOf="@+id/arrowsZoom"
+                app:layout_constraintStart_toEndOf="@+id/arrowsZoom"
+                app:layout_constraintTop_toTopOf="@+id/arrowsZoom" />
+
+            <ImageView
+                android:id="@+id/arrowsZoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrows_zoom"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="@dimen/layout_160dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_regular"
+                android:gravity="center"
+                android:text="@string/use_gestures_to_zoom_in_out"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16sp"
+                app:layout_constraintEnd_toEndOf="@+id/arrowsZoom"
+                android:layout_marginTop="@dimen/margin_16dp"
+                app:layout_constraintStart_toStartOf="@+id/arrowsZoom"
+                app:layout_constraintTop_toBottomOf="@+id/arrowsZoom" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

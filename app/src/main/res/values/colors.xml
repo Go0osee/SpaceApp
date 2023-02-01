@@ -11,4 +11,6 @@
     <color name="primary_orange">#FFAB08</color>
     <color name="background_main">#1D1E1F</color>
     <color name="yellow">#FFEB3B</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="tutorial_background">#80C4C4C4</color>
 </resources>

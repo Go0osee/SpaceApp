@@ -10,7 +10,6 @@
         android:layout_height="@dimen/height_item_photo"
         android:layout_marginHorizontal="@dimen/margin_8dp"
         android:layout_marginVertical="@dimen/margin_8dp"
-        android:background="?attr/selectableItemBackground"
         android:backgroundTint="@color/primary_dark_blue"
         app:cardCornerRadius="@dimen/item_photo_radius"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,7 +19,9 @@
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?attr/selectableItemBackground">
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/photoCardView"
