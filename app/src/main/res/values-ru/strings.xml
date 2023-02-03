@@ -9,4 +9,12 @@
     <string name="click_the_button_to_go_back">Нажмите кнопку, чтобы вернуться назад</string>
     <string name="click_the_button_to_share">Нажмите кнопку,чтобы поделиться</string>
     <string name="use_gestures_to_zoom_in_out">Используйте жесты, чтобы приблизить/отдалить</string>
+    <string name="satellite">Спутник</string>
+    <string name="hybrid">Гибрид</string>
+    <string name="longitude">Долгота:</string>
+    <string name="width">Широта:</string>
+    <string name="marker_name">Имя маркера</string>
+    <string name="cansel">Отменить</string>
+    <string name="save">Сохранить</string>
+
 </resources>

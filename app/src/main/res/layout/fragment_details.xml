@@ -61,6 +61,7 @@
         android:id="@+id/tutorial"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         android:backgroundTint="@color/tutorial_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -13,6 +13,7 @@ import com.github.terrakok.cicerone.Router
 import com.go0ose.spaceapp.SpaseApp
 import com.go0ose.spaceapp.databinding.FragmentDetailsBinding
 import com.go0ose.spaceapp.presentation.screens.base.BaseFragment
+import com.go0ose.spaceapp.presentation.screens.details.models.ActionDetails
 import com.go0ose.spaceapp.utils.setImageByUrl
 import moxy.ktx.moxyPresenter
 import java.io.File
@@ -44,18 +45,18 @@ class DetailsFragment(private val photo: String) : BaseFragment<FragmentDetailsB
             marsPhoto.setImageByUrl(photo)
 
             tutorial.setOnClickListener{
-                presenter.hideTutorial()
+                presenter.doWork(ActionDetails.OnClickTutorial)
             }
             buttonBack.setOnClickListener {
-                presenter.back()
+                presenter.doWork(ActionDetails.OnClickButtonBack)
             }
             buttonShare.setOnClickListener {
-                shareImage()
+                presenter.doWork(ActionDetails.OnClickButtonShare)
             }
         }
     }
 
-    private fun shareImage() {
+    override fun shareImage() {
         val imageView: ImageView = binding.marsPhoto
         val bitmap = (imageView.drawable as BitmapDrawable).bitmap
         val file = File(requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES), "image.jpeg")

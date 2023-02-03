@@ -26,6 +26,6 @@ class PresenterModule {
     @Provides
     fun getDetailsPresenter(
         router: Router,
-        context: Context
+        context: Context,
     ): DetailsPresenter = DetailsPresenter(router, context)
 }

@@ -9,4 +9,11 @@
     <string name="click_the_button_to_go_back">Click the button to go back</string>
     <string name="click_the_button_to_share">Click the button to share</string>
     <string name="use_gestures_to_zoom_in_out">Use gestures to zoom in/out</string>
+    <string name="satellite">Satellite</string>
+    <string name="hybrid">Hybrid</string>
+    <string name="longitude">Longitude:</string>
+    <string name="width">Width:</string>
+    <string name="marker_name">Marker name</string>
+    <string name="cansel">Cansel</string>
+    <string name="save">Save</string>
 </resources>

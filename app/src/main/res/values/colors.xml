@@ -13,4 +13,7 @@
     <color name="yellow">#FFEB3B</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="tutorial_background">#80C4C4C4</color>
+    <color name="pink">#DB32B1</color>
+    <color name="gray">#C4C4C4</color>
+    <color name="gray_bottom_sheet">#2B2B2B</color>
 </resources>

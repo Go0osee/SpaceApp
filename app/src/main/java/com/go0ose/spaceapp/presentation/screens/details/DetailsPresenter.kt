@@ -2,6 +2,7 @@ package com.go0ose.spaceapp.presentation.screens.details
 
 import android.content.Context
 import com.github.terrakok.cicerone.Router
+import com.go0ose.spaceapp.presentation.screens.details.models.ActionDetails
 import moxy.InjectViewState
 import moxy.MvpPresenter
 
@@ -16,8 +17,20 @@ class DetailsPresenter(
 
         if (isFirst()) {
             viewState.showTutorial()
-        } else {
-            hideTutorial()
+        }
+    }
+
+    fun doWork(action: ActionDetails) {
+        when (action) {
+            is ActionDetails.OnClickButtonShare -> {
+                viewState.shareImage()
+            }
+            is ActionDetails.OnClickButtonBack -> {
+                router.exit()
+            }
+            is ActionDetails.OnClickTutorial -> {
+                viewState.hideTutorial()
+            }
         }
     }
 
@@ -32,13 +45,5 @@ class DetailsPresenter(
         } else {
             false
         }
-    }
-
-    fun hideTutorial() {
-        viewState.hideTutorial()
-    }
-
-    fun back() {
-        router.exit()
     }
 }

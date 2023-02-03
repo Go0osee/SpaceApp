@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "344714136273",
+    "project_id": "spaseapp",
+    "storage_bucket": "spaseapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:344714136273:android:0a017b57dc1a4f2a4593f0",
+        "android_client_info": {
+          "package_name": "com.go0ose.spaceapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "344714136273-94r11895b2njl13c5kqjr79s10qahnv8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIj8LWQXMkRUDXRlAo5zVKSTRz9yQDwH0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "344714136273-94r11895b2njl13c5kqjr79s10qahnv8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
