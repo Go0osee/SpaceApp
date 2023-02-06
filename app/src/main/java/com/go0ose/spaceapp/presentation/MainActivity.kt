@@ -4,18 +4,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
-import com.github.terrakok.cicerone.androidx.FragmentScreen
 import com.go0ose.spaceapp.R
 import com.go0ose.spaceapp.SpaseApp
 import com.go0ose.spaceapp.SpaseApp.Companion.appComponent
 import com.go0ose.spaceapp.databinding.ActivityMainBinding
 import com.go0ose.spaceapp.di.DaggerAppComponent
 import com.go0ose.spaceapp.presentation.navigation.Screens
-import com.go0ose.spaceapp.presentation.screens.main.MainFragment
 import com.go0ose.spaceapp.presentation.screens.map.MapFragment
 import com.go0ose.spaceapp.utils.isOnline
 import javax.inject.Inject
@@ -24,24 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val navigator = object : AppNavigator(this, R.id.mainContainer) {
-        override fun setupFragmentTransaction(
-            screen: FragmentScreen,
-            fragmentTransaction: FragmentTransaction,
-            currentFragment: Fragment?,
-            nextFragment: Fragment,
-        ) {
-
-            when (nextFragment) {
-                is MapFragment -> {
-                    binding.bottomNavigation.menu.findItem(R.id.mapScreenFragment).isChecked = true
-                }
-                is MainFragment -> {
-                    binding.bottomNavigation.menu.findItem(R.id.mainScreenFragment).isChecked = true
-                }
-            }
-        }
-    }
+    private val navigator = AppNavigator(this, R.id.mainContainer)
 
     @Inject
     lateinit var navigatorHolder: NavigatorHolder
@@ -88,6 +68,22 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             true
+        }
+    }
+
+    override fun onBackPressed() {
+        router.exit()
+        val fm = supportFragmentManager
+        var fragment: Fragment? = null
+        val fragments = fm.fragments
+        for (f in fragments) {
+            if (f.isVisible) {
+                fragment = f
+                break
+            }
+        }
+        if (fragment is MapFragment) {
+            binding.bottomNavigation.menu.findItem(R.id.mainScreenFragment).isChecked = true
         }
     }
 

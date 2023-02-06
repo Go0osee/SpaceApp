@@ -16,4 +16,5 @@
     <string name="marker_name">Marker name</string>
     <string name="cansel">Cansel</string>
     <string name="save">Save</string>
+    <string name="no_name">No name</string>
 </resources>

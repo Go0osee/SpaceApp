@@ -16,5 +16,5 @@
     <string name="marker_name">Имя маркера</string>
     <string name="cansel">Отменить</string>
     <string name="save">Сохранить</string>
-
+    <string name="no_name">Без имени</string>
 </resources>

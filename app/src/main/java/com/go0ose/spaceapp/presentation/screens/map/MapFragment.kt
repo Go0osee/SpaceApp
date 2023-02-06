@@ -13,7 +13,8 @@ import com.go0ose.spaceapp.SpaseApp
 import com.go0ose.spaceapp.databinding.FragmentMapBinding
 import com.go0ose.spaceapp.presentation.screens.base.BaseFragment
 import com.go0ose.spaceapp.presentation.screens.map.models.ActionMap
-import com.go0ose.spaceapp.presentation.screens.map.recycler.MarkerAdapter
+import com.go0ose.spaceapp.presentation.screens.map.recycler.MapAdapter
+import com.go0ose.spaceapp.presentation.screens.map.recycler.OnItemClickListener
 import com.go0ose.spaceapp.utils.setShader
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -37,7 +38,16 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), IMapView, OnMapReadyCall
 
     private lateinit var googleMap: GoogleMap
 
-    private val adapter = MarkerAdapter()
+    private val onItemListener by lazy {
+        object : OnItemClickListener {
+            override fun onItemClickDelete(marker: Marker) {
+                marker.remove()
+                presenter.doWork(ActionMap.DeleteMarker(marker))
+            }
+        }
+    }
+
+    private val adapter = MapAdapter(onItemListener)
 
     override fun binding() = FragmentMapBinding.inflate(layoutInflater)
 
@@ -77,6 +87,7 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), IMapView, OnMapReadyCall
             marker.showInfoWindow()
             false
         }
+        presenter.doWork(ActionMap.LoadMarkers)
     }
 
     override fun showAlertChooseMapType() {
@@ -126,7 +137,10 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), IMapView, OnMapReadyCall
                 .title(name)
                 .icon(BitmapDescriptorFactory.fromBitmap(requireContext().getDrawable(R.drawable.ic_marker)!!
                     .toBitmap(48, 64))))
+        presenter.doWork(ActionMap.AddMarker(marker!!))
+    }
 
-        marker?.let { adapter.addMarker(it) }
+    override fun updateList(list: List<Marker>) {
+        adapter.updateItems(list)
     }
 }

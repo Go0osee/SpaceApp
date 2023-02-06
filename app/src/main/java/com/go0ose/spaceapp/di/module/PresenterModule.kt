@@ -8,6 +8,7 @@ import com.go0ose.spaceapp.presentation.screens.main.MainPresenter
 import com.go0ose.spaceapp.presentation.screens.map.MapPresenter
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 class PresenterModule {
@@ -21,6 +22,7 @@ class PresenterModule {
         MainPresenter(getMarsPhotoFromApi, router, context)
 
     @Provides
+    @Singleton
     fun getMapPresenter(): MapPresenter = MapPresenter()
 
     @Provides
