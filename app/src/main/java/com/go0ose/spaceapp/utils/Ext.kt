@@ -26,8 +26,12 @@ fun Context.showToast(message: String) {
 }
 
 fun ImageView.setImageByUrl(url: String) {
+    var newUrl = url
+    if (!url.startsWith("https://")) {
+        newUrl = url.replace("http://", "https://")
+    }
     Glide.with(context)
-        .load(url)
+        .load(newUrl)
         .into(this)
 }
 
